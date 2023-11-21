@@ -30,9 +30,9 @@ class MainViewController: UITableViewController {
         
                 let place = places[indexPath.row]
         
-                cell.nameLabel.text = "\(place.name)"
-                cell.locationLabel.text = "\(place.location!)"
-                cell.typeLabel.text = "\(place.type!)"
+                cell.nameLabel.text = place.name
+                cell.locationLabel.text = place.location
+                cell.typeLabel.text = place.type
         
                 var imageData = Data()
         
@@ -60,7 +60,7 @@ class MainViewController: UITableViewController {
          }
          */
         
-        func unwindSegue(_ segue: UIStoryboardSegue) {
+        @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
             guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
             newPlaceVC.saveNewPlace()
             tableView.reloadData()

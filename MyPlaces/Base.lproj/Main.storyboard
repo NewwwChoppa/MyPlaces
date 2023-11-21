@@ -243,7 +243,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="15h-Yz-D8b">
                             <connections>
-                                <action selector="saveButtonTapped:" destination="z4r-dq-n7W" id="gp4-co-ilX"/>
                                 <segue destination="W3O-FN-2BW" kind="unwind" unwindAction="unwindSegue:" id="n5b-yS-eeh"/>
                             </connections>
                         </barButtonItem>

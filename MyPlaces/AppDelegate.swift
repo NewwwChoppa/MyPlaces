@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  AppDelegate.swift`
 //  MyPlaces
 //
 //  Created by Андрей on 14.11.2023.
