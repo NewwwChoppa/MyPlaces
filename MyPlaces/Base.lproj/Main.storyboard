@@ -188,9 +188,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="55d-DZ-QVp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="55d-DZ-QVp">
+                                <rect key="frame" x="0.0" y="123" width="414" height="773"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="fe5-sH-nXp" customClass="CustomTableViewCell" customModule="MyPlaces" customModuleProvider="target">
@@ -254,9 +253,25 @@
                                     <outlet property="delegate" destination="hR8-Nw-G3D" id="r7d-w6-iag"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hd8-gU-1bR">
+                                <rect key="frame" x="0.0" y="92" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Name"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TzY-jM-k39"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hd8-gU-1bR" firstAttribute="trailing" secondItem="TzY-jM-k39" secondAttribute="trailing" id="6gQ-gL-O8H"/>
+                            <constraint firstItem="hd8-gU-1bR" firstAttribute="leading" secondItem="TzY-jM-k39" secondAttribute="leading" id="Ugd-Ca-kmb"/>
+                            <constraint firstAttribute="bottom" secondItem="55d-DZ-QVp" secondAttribute="bottom" id="Vzi-Vv-ii6"/>
+                            <constraint firstItem="55d-DZ-QVp" firstAttribute="top" secondItem="hd8-gU-1bR" secondAttribute="bottom" id="hse-Yt-jkf"/>
+                            <constraint firstItem="55d-DZ-QVp" firstAttribute="leading" secondItem="TzY-jM-k39" secondAttribute="leading" id="lG5-vR-ngX"/>
+                            <constraint firstItem="hd8-gU-1bR" firstAttribute="top" secondItem="TzY-jM-k39" secondAttribute="top" id="lcv-06-UUv"/>
+                            <constraint firstItem="55d-DZ-QVp" firstAttribute="trailing" secondItem="TzY-jM-k39" secondAttribute="trailing" id="qcv-2i-Pga"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="JfG-wZ-edU">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="f6i-hc-sIZ"/>
@@ -272,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWR-Kt-W2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="-9"/>
+            <point key="canvasLocation" x="492.55813953488371" y="-9.6566523605150216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oKx-9I-rz3">
