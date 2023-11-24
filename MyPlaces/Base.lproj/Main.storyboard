@@ -259,6 +259,9 @@
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="hR8-Nw-G3D" eventType="valueChanged" id="Fwy-Ny-jC4"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TzY-jM-k39"/>
@@ -274,7 +277,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="JfG-wZ-edU">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="f6i-hc-sIZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="f6i-hc-sIZ">
+                            <connections>
+                                <action selector="reversedSorting:" destination="hR8-Nw-G3D" id="k6v-xf-XtY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tiC-PT-xEf" customClass="newPlace">
                             <connections>
                                 <segue destination="JQr-M7-DXa" kind="presentation" id="RnK-XR-Bo9"/>
@@ -282,6 +289,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reversedSortingButton" destination="f6i-hc-sIZ" id="MDX-Ik-EFV"/>
+                        <outlet property="segmentedControl" destination="hd8-gU-1bR" id="VJM-wQ-0UC"/>
                         <outlet property="tableView" destination="55d-DZ-QVp" id="fBy-ip-cNg"/>
                     </connections>
                 </viewController>
