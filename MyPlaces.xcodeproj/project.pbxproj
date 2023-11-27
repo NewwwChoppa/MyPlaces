@@ -19,7 +19,6 @@
 		55B3B8FF2B03886A00AD23A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B3B8FE2B03886A00AD23A9 /* Assets.xcassets */; };
 		55B3B9022B03886A00AD23A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B3B9002B03886A00AD23A9 /* LaunchScreen.storyboard */; };
 		55B3B90A2B038E9600AD23A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3B9092B038E9600AD23A9 /* MainViewController.swift */; };
-		55CDFFAF2B14BA8D00C19E95 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CDFFAE2B14BA8D00C19E95 /* RatingControl.swift */; };
 		55D3E2692B14C38F00DF88E9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E2682B14C38F00DF88E9 /* Realm */; };
 		55D3E26B2B14C38F00DF88E9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E26A2B14C38F00DF88E9 /* RealmSwift */; };
 		55D3E26E2B14D58400DF88E9 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E26D2B14D58400DF88E9 /* Cosmos */; };
@@ -40,7 +39,6 @@
 		55B3B9012B03886A00AD23A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B3B9032B03886A00AD23A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B3B9092B038E9600AD23A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		55CDFFAE2B14BA8D00C19E95 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				5581422E2B0B8AF2006F286B /* NewPlaceViewController.swift */,
 				556E73DE2B060C4500305BDC /* PlaceModel.swift */,
 				559AF6EE2B0C9BA300D60F0B /* StorageManager.swift */,
-				55CDFFAE2B14BA8D00C19E95 /* RatingControl.swift */,
 				55B3B8FB2B03886900AD23A9 /* Main.storyboard */,
 				55B3B8FE2B03886A00AD23A9 /* Assets.xcassets */,
 				55B3B9002B03886A00AD23A9 /* LaunchScreen.storyboard */,
@@ -184,7 +181,6 @@
 				5581422F2B0B8AF2006F286B /* NewPlaceViewController.swift in Sources */,
 				55B3B8F62B03886900AD23A9 /* AppDelegate.swift in Sources */,
 				559AF6EF2B0C9BA300D60F0B /* StorageManager.swift in Sources */,
-				55CDFFAF2B14BA8D00C19E95 /* RatingControl.swift in Sources */,
 				556E73DF2B060C4500305BDC /* PlaceModel.swift in Sources */,
 				556E73DD2B0601FD00305BDC /* CustomTableViewCell.swift in Sources */,
 				55B3B8F82B03886900AD23A9 /* SceneDelegate.swift in Sources */,

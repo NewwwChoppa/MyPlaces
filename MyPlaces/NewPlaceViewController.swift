@@ -6,18 +6,19 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
     var currentPlace: Place!
+    var currentRating = 0.0
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
-    @IBOutlet weak var ratingControl: RatingControl!
-    
+    @IBOutlet weak var cosmosView: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,9 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
         
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         setupEditScreen()
+        cosmosView.didTouchCosmos = { rating in
+            self.currentRating = rating
+        }
     }
     
     // MARK: TableView delegate
@@ -65,7 +69,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     }
     
     func savePlace() {
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData(), rating: Double(ratingControl.rating))
+        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData(), rating: cosmosView.rating)
         
         if currentPlace != nil {
             try! realm.write {
@@ -73,7 +77,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
-                currentPlace?.rating = Double(ratingControl.rating)
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
@@ -90,7 +94,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
-            ratingControl.rating = Int(currentPlace.rating)
+            cosmosView.rating = currentPlace.rating
         }
     }
     
