@@ -9,17 +9,18 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         saveButton.isEnabled = false
         
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -64,7 +65,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     }
     
     func savePlace() {
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData())
+        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData(), rating: Double(ratingControl.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -72,6 +73,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = Double(ratingControl.rating)
             }
         } else {
             StorageManager.saveObject(newPlace)
@@ -88,6 +90,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
         }
     }
     

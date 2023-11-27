@@ -82,7 +82,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    
+    // MARK: Table View delegate
     // Альтернативный метод для добавления нескольких действий по свайпу
     
     //    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -95,6 +95,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //        }
     //        return UISwipeActionsConfiguration(actions: [deleteAction])
     //    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
