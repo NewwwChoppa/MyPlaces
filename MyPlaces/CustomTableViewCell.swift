@@ -15,9 +15,6 @@ class CustomTableViewCell: UITableViewCell {
             imageOfPlace.layer.cornerRadius = imageOfPlace.frame.height / 2
             imageOfPlace.clipsToBounds = true
             imageOfPlace.contentMode = .scaleAspectFill
-            if imageOfPlace == UIImage(named: "photo.on.rectangle") {
-                imageOfPlace.contentMode = .scaleAspectFit
-            }
         }
     }
     @IBOutlet weak var nameLabel: UILabel!

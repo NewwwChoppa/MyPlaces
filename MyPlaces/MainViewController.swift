@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.typeLabel.text = place.type
         cell.cosmosView.rating = place.rating
         
-        let imageData = (place.imageData != nil) ? place.imageData! : UIImage(named: "photo.on.rectangle")!.pngData()
+        let imageData = (place.imageData != nil) ? place.imageData! : UIImage(named: "imagePlaceholder")!.pngData()
         
         cell.imageOfPlace.image = UIImage(data: imageData!)
         
@@ -68,18 +68,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: Table View delegate
-    // Альтернативный метод для добавления нескольких действий по свайпу
-    
-    //    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    //
-    //        let place = places[indexPath.row]
-    //
-    //        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-    //            StorageManager.deleteObject(place)
-    //            tableView.deleteRows(at: [indexPath], with: .automatic)
-    //        }
-    //        return UISwipeActionsConfiguration(actions: [deleteAction])
-    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

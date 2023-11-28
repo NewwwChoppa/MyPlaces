@@ -12,6 +12,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     
     var currentPlace: Place!
     var currentRating = 0.0
+    var imageChanged = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var placeImage: UIImageView!
@@ -75,11 +76,18 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
         guard segue.identifier == "showMap" else { return }
         
         let mapVC = segue.destination as! MapViewController
-        mapVC.place = currentPlace
+        mapVC.place.name = placeName.text!
+        mapVC.place.location = placeLocation.text
+        mapVC.place.type = placeType.text
+        mapVC.place.imageData = placeImage.image?.pngData()
+        mapVC.isImageSet = imageChanged
     }
     
     func savePlace() {
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData(), rating: cosmosView.rating)
+        
+        let imageData = imageChanged ? placeImage.image?.pngData() : nil
+        
+        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData, rating: cosmosView.rating)
         
         if currentPlace != nil {
             try! realm.write {
@@ -96,10 +104,18 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     
     private func setupEditScreen() {
         if currentPlace != nil {
-            setupNavigationBar()
-            guard let data = currentPlace?.imageData, let image = UIImage(data: data) else { return }
             
-            placeImage.image = image
+            
+            if currentPlace.imageData != nil {
+                imageChanged = true
+            }
+            
+            setupNavigationBar()
+            
+            if let data = currentPlace?.imageData, let image = UIImage(data: data) {
+                placeImage.image = image
+            }
+            
             placeImage.contentMode = .scaleAspectFill
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
@@ -163,6 +179,7 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate {
         placeImage.contentMode = .scaleAspectFill
         placeImage.clipsToBounds = true
         dismiss(animated: true)
+        imageChanged = true
     }
     
 }

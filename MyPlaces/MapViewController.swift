@@ -10,7 +10,8 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    var place: Place!
+    var place = Place()
+    var isImageSet = false
     let annotationIdentifier = "annotationIdentifier"
 
     @IBOutlet weak var mapView: MKMapView!
@@ -68,7 +69,9 @@ extension MapViewController: MKMapViewDelegate {
             annotationView?.canShowCallout = true
         }
         
-        if let imageData = place.imageData {
+        guard isImageSet else { return annotationView }
+        
+        if let imageData = place.imageData{
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
             imageView.layer.cornerRadius = 10
             imageView.clipsToBounds = true
