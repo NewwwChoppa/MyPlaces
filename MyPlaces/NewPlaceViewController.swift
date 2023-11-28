@@ -68,6 +68,16 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
         }
     }
     
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "showMap" else { return }
+        
+        let mapVC = segue.destination as! MapViewController
+        mapVC.place = currentPlace
+    }
+    
     func savePlace() {
         let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: placeImage.image?.pngData(), rating: cosmosView.rating)
         

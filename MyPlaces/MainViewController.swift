@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.typeLabel.text = place.type
         cell.cosmosView.rating = place.rating
         
-        var imageData = (place.imageData != nil) ? place.imageData! : UIImage(named: "photo.on.rectangle")!.pngData()
+        let imageData = (place.imageData != nil) ? place.imageData! : UIImage(named: "photo.on.rectangle")!.pngData()
         
         cell.imageOfPlace.image = UIImage(data: imageData!)
         

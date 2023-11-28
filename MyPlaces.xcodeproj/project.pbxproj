@@ -22,6 +22,7 @@
 		55D3E2692B14C38F00DF88E9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E2682B14C38F00DF88E9 /* Realm */; };
 		55D3E26B2B14C38F00DF88E9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E26A2B14C38F00DF88E9 /* RealmSwift */; };
 		55D3E26E2B14D58400DF88E9 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 55D3E26D2B14D58400DF88E9 /* Cosmos */; };
+		55F0384E2B15E90500562FB0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0384D2B15E90500562FB0 /* MapViewController.swift */; };
 		55FA48972B1084DE00400881 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 55FA48962B1084DE00400881 /* Realm */; };
 		55FA48992B1084DE00400881 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55FA48982B1084DE00400881 /* RealmSwift */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		55B3B9012B03886A00AD23A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B3B9032B03886A00AD23A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B3B9092B038E9600AD23A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		55F0384D2B15E90500562FB0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				556E73DC2B0601FD00305BDC /* CustomTableViewCell.swift */,
 				55B3B9092B038E9600AD23A9 /* MainViewController.swift */,
 				5581422E2B0B8AF2006F286B /* NewPlaceViewController.swift */,
+				55F0384D2B15E90500562FB0 /* MapViewController.swift */,
 				556E73DE2B060C4500305BDC /* PlaceModel.swift */,
 				559AF6EE2B0C9BA300D60F0B /* StorageManager.swift */,
 				55B3B8FB2B03886900AD23A9 /* Main.storyboard */,
@@ -184,6 +187,7 @@
 				556E73DF2B060C4500305BDC /* PlaceModel.swift in Sources */,
 				556E73DD2B0601FD00305BDC /* CustomTableViewCell.swift in Sources */,
 				55B3B8F82B03886900AD23A9 /* SceneDelegate.swift in Sources */,
+				55F0384E2B15E90500562FB0 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
