@@ -251,13 +251,27 @@
                                     <action selector="closeVC" destination="85T-oh-yT7" eventType="touchUpInside" id="hQC-DT-GyD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ME-U0-epJ">
+                                <rect key="frame" x="324" y="796" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SHh-l6-3AP"/>
+                                    <constraint firstAttribute="width" constant="50" id="cvn-87-Dic"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="85T-oh-yT7" eventType="touchUpInside" id="NiI-uh-8Hx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C5g-oI-zly"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="C5g-oI-zly" firstAttribute="trailing" secondItem="z0Q-yN-BlM" secondAttribute="trailing" constant="40" id="6yo-0e-l7w"/>
                             <constraint firstItem="z0Q-yN-BlM" firstAttribute="top" secondItem="C5g-oI-zly" secondAttribute="top" constant="40" id="RJO-Su-j7o"/>
+                            <constraint firstAttribute="bottom" secondItem="3ME-U0-epJ" secondAttribute="bottom" constant="40" id="SAf-Ab-MFc"/>
                             <constraint firstAttribute="bottom" secondItem="zWo-jU-yJC" secondAttribute="bottom" id="TE5-Cs-gPN"/>
+                            <constraint firstAttribute="trailing" secondItem="3ME-U0-epJ" secondAttribute="trailing" constant="40" id="bSB-Jl-cfE"/>
                             <constraint firstItem="zWo-jU-yJC" firstAttribute="leading" secondItem="C5g-oI-zly" secondAttribute="leading" id="cFR-kF-ar3"/>
                             <constraint firstItem="zWo-jU-yJC" firstAttribute="top" secondItem="yrz-VO-Gfp" secondAttribute="top" id="iJh-mr-CrW"/>
                             <constraint firstItem="zWo-jU-yJC" firstAttribute="trailing" secondItem="C5g-oI-zly" secondAttribute="trailing" id="wJW-Fx-lO3"/>
@@ -468,6 +482,7 @@
         <image name="AZ" width="25" height="24"/>
         <image name="emptyStar" width="255" height="256"/>
         <image name="filledStar" width="237.5" height="238"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="map.circle.fill" catalog="system" width="128" height="123"/>
         <image name="photo.badge.plus" catalog="system" width="128" height="97"/>
         <image name="x.circle.fill" catalog="system" width="128" height="123"/>

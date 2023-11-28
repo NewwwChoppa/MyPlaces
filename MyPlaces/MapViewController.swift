@@ -7,24 +7,36 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
     var place = Place()
     var isImageSet = false
     let annotationIdentifier = "annotationIdentifier"
-
-    @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
+    let regionInMeters = 10_000.0
     
+    @IBOutlet weak var mapView: MKMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         setupPlacemark()
-
+        checkLocationServices()
     }
-
+    
     @IBAction func closeVC() {
         dismiss(animated: true)
+    }
+    @IBAction func centerViewInUserLocation() {
+        
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location,
+                                            latitudinalMeters: regionInMeters,
+                                            longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     private func setupPlacemark() {
@@ -54,6 +66,65 @@ class MapViewController: UIViewController {
             self.mapView.selectAnnotation(annotation, animated: true)
         }
     }
+    
+    private func checkLocationServices() {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+        } else {
+            // Show alert controller
+        }
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationAuthorization() {
+        switch locationManager.authorizationStatus {
+            
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            showAlert()
+            break
+        case .denied:
+            showAlert()
+            break
+        case .authorizedAlways:
+            break
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Упс!🤬", 
+                                                message: "Мы не сможем проложить маршрут до места пока вы не разрешите MyPlaces доступ к вашей геолокации в настройках!🦧",
+                                                preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: "Настройки", style: .default) { _ in
+            Task {
+                await self.openSettings()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+    }
+    
+    private func openSettings() async {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            await UIApplication.shared.open(url)
+        }
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -80,5 +151,11 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         return annotationView
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
     }
 }
