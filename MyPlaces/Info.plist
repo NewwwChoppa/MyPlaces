@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To get directions to your favourite places and to get adresses</string>
+	<string>To get directions to your favourite places and to get addresses</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) photo use</string>
 	<key>UIApplicationSceneManifest</key>
